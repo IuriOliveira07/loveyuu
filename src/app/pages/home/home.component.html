@@ -1,0 +1,22 @@
+<app-loader *ngIf="loader == true"></app-loader>
+
+<div class="body" *ngIf="loader == false">
+
+    <div class="titulo">
+        <span>Lívia <i class='bx bxs-heart'></i> Iuri</span>
+    </div>
+
+    <div class="container">
+        <div class="slider">
+            <div class="slides">
+                <img [src]="images[currentIndex]" alt="Photo Slider">
+            </div>
+        </div>
+    </div>
+
+    <div class="time">
+        <span>{{ timeDifference.years }} anos, {{ timeDifference.months }} meses, {{ timeDifference.days }} dias</span>
+        <span>{{ timeDifference.hours }} horas, {{ timeDifference.minutes }} minutos, {{ timeDifference.seconds }} segundos</span>
+    </div>
+
+</div>
