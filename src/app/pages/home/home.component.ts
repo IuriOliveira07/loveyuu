@@ -2,11 +2,12 @@ import { Component} from '@angular/core';
 import { CountdownComponent } from "../../components/countdown/countdown.component";
 import { LoaderComponent } from "../../components/loader/loader.component";
 import { CommonModule } from '@angular/common';
+import { MusicPlayerComponent } from "../../components/music-player/music-player.component";
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CountdownComponent, LoaderComponent, CommonModule],
+  imports: [CountdownComponent, LoaderComponent, CommonModule, MusicPlayerComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })

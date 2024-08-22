@@ -1,4 +1,6 @@
-<app-loader *ngIf="loader == true"></app-loader>
+<div class="loader" *ngIf="loader == true">
+    <app-loader ></app-loader>
+</div>
 
 <div class="body" *ngIf="loader == false">
 
@@ -18,5 +20,7 @@
         <span>{{ timeDifference.years }} anos, {{ timeDifference.months }} meses, {{ timeDifference.days }} dias</span>
         <span>{{ timeDifference.hours }} horas, {{ timeDifference.minutes }} minutos, {{ timeDifference.seconds }} segundos</span>
     </div>
+
+    <app-music-player></app-music-player>
 
 </div>
