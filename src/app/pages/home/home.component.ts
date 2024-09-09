@@ -84,15 +84,29 @@ export class HomeComponent {
 
   private updateTimeDifference() {
     const now = new Date();
-    const diff = now.getTime() - this.startDate.getTime();
-
-    const years = Math.floor(diff / (1000 * 60 * 60 * 24 * 365));
-    const months = Math.floor((diff % (1000 * 60 * 60 * 24 * 365)) / (1000 * 60 * 60 * 24 * 30));
-    const days = Math.floor((diff % (1000 * 60 * 60 * 24 * 30)) / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-    const seconds = Math.floor((diff % (1000 * 60)) / 1000);
-
+    
+    let years = now.getFullYear() - this.startDate.getFullYear();
+    let months = now.getMonth() - this.startDate.getMonth();
+    let days = now.getDate() - this.startDate.getDate();
+    
+    // Ajusta se os dias forem negativos (indicando que ainda não completou o mês)
+    if (days < 0) {
+      months--;
+      // Obtém o número de dias no mês anterior
+      const lastMonth = new Date(now.getFullYear(), now.getMonth(), 0);
+      days += lastMonth.getDate();
+    }
+  
+    // Ajusta se os meses forem negativos (indicando que ainda não completou o ano)
+    if (months < 0) {
+      years--;
+      months += 12;
+    }
+  
+    const hours = now.getHours();
+    const minutes = now.getMinutes();
+    const seconds = now.getSeconds();
+  
     this.timeDifference = { years, months, days, hours, minutes, seconds };
   }
 }
